@@ -1,0 +1,59 @@
+---
+title: "Data Processing"
+author: "Javier Castillo-Arnemann"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+With this document we'll explore how we can to import and process a dataset to use it in a package in a reproducible way. 
+
+The first step is to load our libraries and create a directory where our raw data will reside:
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+usethis::use_data_raw()
+```
+
+After creating the directory, we download our data here (we don't do this with R).
+
+Let's import the dataset and see how it looks.
+
+```{r}
+sportsPolitics <- read.csv("NFL_fandom_data-google_trends.csv")
+
+head(sportsPolitics) %>% knitr::kable()
+str(sportsPolitics)
+```
+
+As we can see, this data needs to be processed further to make it tidy and easy to use with R. We want to separate the state from the city and have the percentages as numeric values.
+
+```{r}
+sportsPolitics <- sportsPolitics %>%
+  rename(City = DMA) %>% #Rename column to make more sense
+  mutate(State = as.factor(str_sub(City, start = -2)),#Extract last two characters in string (state)
+         City = as.factor(str_sub(City, end = -3))) #Remove last three charaters from city (State and space)
+
+sportsPolitics[, 2:9] <- map(sportsPolitics[, 2:9], str_sub, end = -2) #Remove percentage signs
+sportsPolitics[, 2:9] <- map(sportsPolitics[, 2:9], as.numeric)  #Convert to numeric elements
+sportsPolitics[, 2:9] <- map(sportsPolitics[, 2:9], function(x) x/100) #Divide by 100
+          
+```
+
+Let's see how our dataset looks now.
+
+```{r}
+head(sportsPolitics) %>% knitr::kable()
+str(sportsPolitics)
+```
+
+Perfect! Now that our data is better suited to work with R, we can save it in our package so it is available whenever we load the package.
+
+```{r}
+usethis::use_data(sportsPolitics, overwrite = TRUE) #overwrite so .md file can be generated, will throw an error otherwise
+```
+
+
