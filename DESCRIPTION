@@ -1,12 +1,22 @@
 Package: sportsPolitics
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Sports and Trump voters
 Version: 0.1.0
-Author: Who wrote it
+Authors@R: person("Javier", "Castillo-Arnemann", email = "javiercastilloar@gmail.com",
+                  role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: Loads the sportsPolitics dataset that cointains Google Trends
+    information for major Us sports searches and Trump voting percentage 
+    in every US designated market area.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+Imports: 
+    ggplot2,
+    dplyr
+Depends: R(>= 2.10.0)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

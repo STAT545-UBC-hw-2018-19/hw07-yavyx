@@ -1,0 +1,33 @@
+---
+title: "Using sportsPolitics"
+author: "Javier Castillo-arnemannr"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+First, load the package:
+
+```{r}
+library(sportsPolitics)
+```
+
+The data is automatically loaded:
+
+```{r}
+sportsPolitics
+```
+
+The data is in a tidy format, so it is very easy to do any kind of analysis with it.
+
+The function `plot_sport()` plots the selected sport's search percentage against the Trump voting percentage for the sport selected. The default value `sport = all` plots all sports at the same time. 
+
+```{r}
+plot_sport()
+
+plot_sport("MLB")
+```
+
