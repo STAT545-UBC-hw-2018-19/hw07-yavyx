@@ -33,14 +33,17 @@ As we can see, this data needs to be processed further to make it tidy and easy 
 
 ```{r}
 sportsPolitics <- sportsPolitics %>%
-  rename(City = DMA) %>% #Rename column to make more sense
+  rename(City = DMA,
+         TrumpVote = Trump.2016.Vote.) %>% #Rename columns to make more sense
   mutate(State = as.factor(str_sub(City, start = -2)),#Extract last two characters in string (state)
          City = as.factor(str_sub(City, end = -3))) #Remove last three charaters from city (State and space)
 
 sportsPolitics[, 2:9] <- map(sportsPolitics[, 2:9], str_sub, end = -2) #Remove percentage signs
 sportsPolitics[, 2:9] <- map(sportsPolitics[, 2:9], as.numeric)  #Convert to numeric elements
 sportsPolitics[, 2:9] <- map(sportsPolitics[, 2:9], function(x) x/100) #Divide by 100
-          
+
+sportsPolitics <- as.tibble(sportsPolitics) %>%
+  dplyr::select(c(City, State, everything())) #Reorder columns
 ```
 
 Let's see how our dataset looks now.
@@ -50,10 +53,23 @@ head(sportsPolitics) %>% knitr::kable()
 str(sportsPolitics)
 ```
 
+We still have to tidy our data so every column is a variable.
+
+```{r}
+sportsPolitics <- sportsPolitics %>%
+  gather(key = "Sport", 
+         value = searchPercentage, 
+         c(NFL, NBA, MLB, NHL, NASCAR, CBB, CFB))
+
+sportsPolitics$Sport <- as.factor(sportsPolitics$Sport)
+
+str(sportsPolitics)
+```
+
 Perfect! Now that our data is better suited to work with R, we can save it in our package so it is available whenever we load the package.
 
 ```{r}
-usethis::use_data(sportsPolitics, overwrite = TRUE) #overwrite so .md file can be generated, will throw an error otherwise
+usethis::use_data(sportsPolitics, overwrite = TRUE) #overwrite so we can ovewrite the existing file after making changes
 ```
 
 
