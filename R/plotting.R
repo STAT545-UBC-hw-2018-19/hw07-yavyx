@@ -10,7 +10,7 @@
 #'
 
 plot_sport <- function(sport = "all"){
-  if (!sport %in% sportsPolitics$Sport | sport == "all") {
+  if (!sport %in% sportsPolitics$Sport | !sport == "all") {
     stop("Sport could not be found. Check that your sport is spelled properly and included in sportsPolitics.")  #Stop program if input is unexpected
   } 
   else if (sport == "all") {

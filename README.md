@@ -21,8 +21,55 @@ library(devtools)
 install_github("STAT545-UBC-students/hw07-yavyx")
 ```
 
-    ## Skipping install of 'sportsPolitics' from a github remote, the SHA1 (d3931b43) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
+    ## Downloading GitHub repo STAT545-UBC-students/hw07-yavyx@master
+
+    ## WARNING: Rtools is required to build R packages, but is not currently installed.
+    ## 
+    ## Please download and install Rtools 3.5 from http://cran.r-project.org/bin/windows/Rtools/.
+
+    ##   
+      
+      
+       checking for file 'C:\Users\Javier\AppData\Local\Temp\Rtmpig6tdM\remotes367c5fd85c5c\STAT545-UBC-students-hw07-yavyx-04cdf06/DESCRIPTION' ...
+      
+       checking for file 'C:\Users\Javier\AppData\Local\Temp\Rtmpig6tdM\remotes367c5fd85c5c\STAT545-UBC-students-hw07-yavyx-04cdf06/DESCRIPTION' ... 
+      
+    v  checking for file 'C:\Users\Javier\AppData\Local\Temp\Rtmpig6tdM\remotes367c5fd85c5c\STAT545-UBC-students-hw07-yavyx-04cdf06/DESCRIPTION' (599ms)
+    ## 
+      
+      
+      
+    -  preparing 'sportsPolitics':
+    ##    checking DESCRIPTION meta-information ...
+      
+       checking DESCRIPTION meta-information ... 
+      
+    v  checking DESCRIPTION meta-information
+    ## 
+      
+      
+      
+    -  checking for LF line-endings in source and make files and shell scripts
+    ## 
+      
+    -  checking for empty or unneeded directories
+    ## 
+      
+      
+      
+    -  looking to see if a 'data/datalist' file should be added
+    ## 
+      
+      
+      
+    -  building 'sportsPolitics_0.1.0.tar.gz'
+    ## 
+      
+       
+    ## 
+
+    ## Installing package into 'C:/Users/Javier/Documents/R/win-library/3.5'
+    ## (as 'lib' is unspecified)
 
 This package requires `ggplot2` and `dplyr` to work, so make sure you load them too.
 
@@ -53,7 +100,7 @@ library(devtools)
 install_github("STAT545-UBC-students/hw07-yavyx")
 ```
 
-    ## Skipping install of 'sportsPolitics' from a github remote, the SHA1 (d3931b43) has not changed since last install.
+    ## Skipping install of 'sportsPolitics' from a github remote, the SHA1 (04cdf061) has not changed since last install.
     ##   Use `force = TRUE` to force installation
 
 This package requires `ggplot2` and `dplyr` to work, so make sure you load them too.
@@ -67,3 +114,5 @@ Resources
 -   [R packages, Object documentation](http://r-pkgs.had.co.nz/man.html)
 -   [Putting your R package on GitHub](http://kbroman.org/pkg_primer/pages/github.html)
 -   [STAT 547M Class Meetings 5 and 6: R Packages](http://stat545.com/Classroom/notes/cm105.nb.html#7_documentation_and_testing)
+
+All these pages where useful to develop this package.
