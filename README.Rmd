@@ -30,4 +30,4 @@ This package requires `ggplot2` and `dplyr` to work, so make sure you load them 
 - [Putting your R package on GitHub](http://kbroman.org/pkg_primer/pages/github.html)
 - [STAT 547M Class Meetings 5 and 6: R Packages](http://stat545.com/Classroom/notes/cm105.nb.html#7_documentation_and_testing)
 
-All these pages where useful to develop this package.
+All these pages were useful to develop this package.

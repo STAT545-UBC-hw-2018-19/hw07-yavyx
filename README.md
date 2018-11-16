@@ -21,8 +21,14 @@ library(devtools)
 install_github("STAT545-UBC-students/hw07-yavyx")
 ```
 
-    ## Skipping install of 'sportsPolitics' from a github remote, the SHA1 (a599a5d7) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
+    ## Downloading GitHub repo STAT545-UBC-students/hw07-yavyx@master
+
+    ## WARNING: Rtools is required to build R packages, but is not currently installed.
+    ## 
+    ## Please download and install Rtools 3.5 from http://cran.r-project.org/bin/windows/Rtools/.
+
+    ## Installing package into 'C:/Users/Javier/Documents/R/win-library/3.5'
+    ## (as 'lib' is unspecified)
 
 This package requires `ggplot2` and `dplyr` to work, so make sure you load them too.
 
@@ -36,4 +42,4 @@ Resources
 -   [Putting your R package on GitHub](http://kbroman.org/pkg_primer/pages/github.html)
 -   [STAT 547M Class Meetings 5 and 6: R Packages](http://stat545.com/Classroom/notes/cm105.nb.html#7_documentation_and_testing)
 
-All these pages where useful to develop this package.
+All these pages were useful to develop this package.
