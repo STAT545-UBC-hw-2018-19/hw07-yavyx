@@ -2,22 +2,22 @@ Data Processing
 ================
 Javier Castillo-Arnemann
 
-With this document we'll explore how we can to import and process a dataset to use it in a package in a reproducible way.
+With this document we'll explore how we can import and process a dataset to use it in a package in a reproducible way.
 
 The first step is to load our libraries and create a directory where our raw data will reside:
 
 ``` r
 suppressPackageStartupMessages(library(tidyverse))
 
-usethis::use_data_raw()
+usethis::use_data_raw() #Create data-raw directory
 ```
 
-    ## ✔ Setting active project to '/home/javier/Documents/stats 545/sportsPolitics'
+    ## <U+2714> Setting active project to 'C:/Users/Javier/OneDrive/UBC/STAT 545/hw07-yavyx'
 
     ## Next:
 
-    ## ● Add data creation scripts in 'data-raw/'
-    ## ● Use `usethis::use_data()` to add data to package
+    ## <U+25CF> Add data creation scripts in 'data-raw/'
+    ## <U+25CF> Use `usethis::use_data()` to add data to package
 
 After creating the directory, we download our data here (we don't do this with R).
 
@@ -43,7 +43,7 @@ str(sportsPolitics)
 ```
 
     ## 'data.frame':    207 obs. of  9 variables:
-    ##  $ DMA             : Factor w/ 207 levels "Abilene-Sweetwater TX",..: 1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ DMA             : Factor w/ 207 levels "Abilene-Sweetwater TX",..: 1 3 2 4 5 6 7 8 9 10 ...
     ##  $ NFL             : Factor w/ 32 levels "22%","24%","26%",..: 22 9 17 30 19 5 24 13 16 17 ...
     ##  $ NBA             : Factor w/ 26 levels "13%","14%","15%",..: 9 18 8 9 16 1 10 16 14 17 ...
     ##  $ MLB             : Factor w/ 19 levels "10%","11%","12%",..: 5 19 11 2 19 12 3 1 18 2 ...
@@ -90,7 +90,7 @@ str(sportsPolitics)
 ```
 
     ## Classes 'tbl_df', 'tbl' and 'data.frame':    207 obs. of  10 variables:
-    ##  $ City     : Factor w/ 204 levels "Abilene-Sweetwater ",..: 1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ City     : Factor w/ 204 levels "Abilene-Sweetwater ",..: 1 3 2 4 5 6 7 8 9 10 ...
     ##  $ State    : Factor w/ 46 levels "AL","AR","AZ",..: 40 9 32 30 17 21 40 9 9 40 ...
     ##  $ NFL      : num  0.45 0.32 0.4 0.53 0.42 0.28 0.47 0.36 0.39 0.4 ...
     ##  $ NBA      : num  0.21 0.3 0.2 0.21 0.28 0.13 0.22 0.28 0.26 0.29 ...
@@ -101,7 +101,7 @@ str(sportsPolitics)
     ##  $ CFB      : num  0.11 0.17 0.04 0.06 0.12 0.09 0.1 0.14 0.13 0.11 ...
     ##  $ TrumpVote: num  0.791 0.591 0.441 0.396 0.696 ...
 
-We still have to tidy our data so every column is a variable.
+Looks good! We still have to tidy our data so every column is a variable.
 
 ``` r
 sportsPolitics <- sportsPolitics %>%
@@ -115,7 +115,7 @@ str(sportsPolitics)
 ```
 
     ## Classes 'tbl_df', 'tbl' and 'data.frame':    1449 obs. of  5 variables:
-    ##  $ City            : Factor w/ 204 levels "Abilene-Sweetwater ",..: 1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ City            : Factor w/ 204 levels "Abilene-Sweetwater ",..: 1 3 2 4 5 6 7 8 9 10 ...
     ##  $ State           : Factor w/ 46 levels "AL","AR","AZ",..: 40 9 32 30 17 21 40 9 9 40 ...
     ##  $ TrumpVote       : num  0.791 0.591 0.441 0.396 0.696 ...
     ##  $ Sport           : Factor w/ 7 levels "CBB","CFB","MLB",..: 6 6 6 6 6 6 6 6 6 6 ...
@@ -127,4 +127,4 @@ Perfect! Now that our data is better suited to work with R, we can save it in ou
 usethis::use_data(sportsPolitics, overwrite = TRUE) #overwrite so we can ovewrite the existing file after making changes
 ```
 
-    ## ✔ Saving 'sportsPolitics' to 'data/sportsPolitics.rda'
+    ## <U+2714> Saving 'sportsPolitics' to 'data/sportsPolitics.rda'
