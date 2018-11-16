@@ -15,7 +15,7 @@ The [data processing](https://github.com/STAT545-UBC-students/hw07-yavyx/blob/ma
 The [vignette](https://github.com/STAT545-UBC-students/hw07-yavyx/blob/master/vignettes/using_sportspolitics.Rmd) shows how to use the package and its single function, `plot_sport()`.
 
 ##To Install
-```{r}
+```{r, results = "hide"}
 library(devtools)
 install_github("STAT545-UBC-students/hw07-yavyx")
 ```
